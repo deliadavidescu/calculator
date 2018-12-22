@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<style>
+	.col-lg-1,.col-lg-2,.col-lg-4,.col-lg-12 {
+	font-size:20px;
+	border: 1px solid gray;
+	}
+
+	#display{
+		color: white;
+	}
+	
+	</style>
+	
+</head>
+<body>
+<div class="container mt-5">
+	<form>
+	<div class="row">
+		
+		<input class="col col-lg-12 bg-dark py-5 text-right" id="display" value="0">
+		</input>
+		<input class="col col-lg-1 btn bg-light py-4 text-center" value="sin" onclick="sin(this.form)">
+		</input>
+		<input class="col col-lg-1 btn bg-light py-4 text-center" value="cos" onclick="cos(this.form)" >
+		</input>
+		<input class="col col-lg-1 btn bg-light py-4 text-center" value="tan" onclick="tan(this.form)">
+		</input>
+		<input class="col col-lg-1 btn bg-light py-4 text-center" value="rad" onclick="rad(this.form)">
+		</input>
+		<input class="col col-lg-2 btn bg-light py-4 text-center" value="C" onclick="this.form.display.value=  0 ">
+		</input>
+		<input class="col col-lg-2 btn bg-light py-4 text-center" value="+/-" onclick="changeSign(this.form.display)">	
+		</input>
+		<input class="col col-lg-2 btn bg-light py-4 text-center" value="%" onclick="percent(this.form.display)">
+		</input>
+		<input class="col col-lg-2 btn bg-light py-4 text-center" value="/" onclick="addChar(this.form.display, '/')">
+		</input>
+		<input class="col col-lg-1 btn bg-light py-4 text-center" value="x^2" onclick="pow2(this.form)">
+		</input>
+		<input class="col col-lg-1 btn bg-light py-4 text-center" value="x^3" onclick="pow3(this.form)">
+		</input>
+		<input class="col col-lg-1 btn bg-light py-4 text-center" value="e^x" onclick="exp(this.form)">
+		</input>
+		<input class="col col-lg-1 btn bg-light py-4 text-center" value="&radic;x" onclick="sqrt(this.form)">
+		</input>
+		<input class="col col-lg-2 btn bg-light py-4 text-center" value="7" onclick="addChar(this.form.display, '7')">
+		</input>
+		<input class="col col-lg-2 btn bg-light py-4 text-center" value="8" onclick="addChar(this.form.display, '8')">
+		</input>
+		<input class="col col-lg-2 btn bg-light py-4 text-center" value="9" onclick="addChar(this.form.display, '9')">
+		</input>
+		<input class="col col-lg-2 btn bg-light py-4 text-center" value="X" onclick="addChar(this.form.display, '*')">
+		</input>
+		
+		<input class="col col-lg-1 btn bg-light py-4 text-center" value="3&radic;x" onclick="sqrt3(this.form)">
+		</input>
+		<input class="col col-lg-1 btn bg-light py-4 text-center" value="ln" onclick="ln(this.form)">
+		</input>
+		<input class="col col-lg-1 btn bg-light py-4 text-center" value="&#960;" onclick="addChar(this.form.display,'3.14159265359')">	
+		</input>
+		<input class="col col-lg-1 btn bg-light py-4 text-center" value="10^x" onclick="pow10(this.form)">
+		</input>
+		<input class="col col-lg-2 btn bg-light py-4 text-center" value="4" onclick="addChar(this.form.display, '4')">
+		</input>
+		<input class="col col-lg-2 btn bg-light py-4 text-center" value="5" onclick="addChar(this.form.display, '5')">
+		</input>
+		<input class="col col-lg-2 btn bg-light py-4 text-center" value="6" onclick="addChar(this.form.display, '6')">
+		</input>
+		<input class="col col-lg-2 btn bg-light py-4 text-center" value="-" onclick="addChar(this.form.display, '-')">
+		</input>
+		<input class="col col-lg-1 btn bg-light py-4 text-center" value="e" onclick="addChar(this.form.display, '2.718281828459045')">
+		</input>
+
+		
+		
+		<input class="col col-lg-1 btn bg-light py-4 text-center" value="1/x" onclick="div(this.form)">
+		</input>
+		<input class="col col-lg-1 btn bg-light py-4 text-center" value="(" onclick="addChar(this.form.display, '(')">
+		</input>
+		<input class="col col-lg-1 btn bg-light py-4 text-center" value=")" onclick="addChar(this.form.display, ')')">
+		</input>
+		<input class="col col-lg-2 btn bg-light py-4 text-center" value="1" onclick="addChar(this.form.display, '1')">
+		</input>
+		<input class="col col-lg-2 btn bg-light py-4 text-center" value="2" onclick="addChar(this.form.display, '2')">
+		</input>
+		<input class="col col-lg-2 btn bg-light py-4 text-center" value="3" onclick="addChar(this.form.display, '3')">
+		</input>
+		<input class="col col-lg-2 btn bg-light py-4 text-center" value="+" onclick="addChar(this.form.display, '+')">
+		</input>
+		<input class="col col-lg-1 btn bg-light py-4 text-center" value="log10" onclick="lg10(this.form)">
+		</input>
+		<input class="col col-lg-1 btn bg-light py-4 text-center" value="x!" onclick="factorial(this.form)">
+		</input>
+		<input class="col col-lg-2 btn bg-light py-4 text-center" value="<--" onclick="deleteChar(this.form.display)">
+		</input>
+		
+		<input class="col col-lg-4 btn bg-light py-4 text-center" value="0" onclick="addChar(this.form.display, '0')">
+		</input>
+		<input class="col col-lg-2 btn bg-light py-4 text-center" value="," onclick="addChar(this.form.display, '.')">
+		</input>
+		<input class="col col-lg-2 btn bg-light py-4 text-center" value="=" onclick="compute(this.form)">
+		</input>
+		
+	</div>
+	</form>
+</div>
+
+<script src="script.js" type="text/javascript" charset="utf-8"></script>
+
+</body>
+</html>
